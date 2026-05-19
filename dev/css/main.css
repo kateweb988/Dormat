@@ -702,9 +702,9 @@ input:-moz-placeholder {
 }
 .main video {
   width: 100%;
-  height: 430px;
+  height: 600px;
   object-fit: cover;
-  margin-bottom: -6px;
+  margin-bottom: -7px;
 }
 .main__row {
   position: relative;
