@@ -217,25 +217,22 @@ document.addEventListener('DOMContentLoaded', function () {
     slidesPerView: 4,
     spaceBetween: 24,
     allowTouchMove: false,
-    pagination: {
-      el: ".swiper-pagination1",
-    },
     breakpoints: {
       // when window width is >= 320px
       320: {
-        spaceBetween: 0,
-        allowTouchMove: true,
+        spaceBetween: 15,
+        allowTouchMove: false,
         loop: true,
-        slidesPerView: 1
+        slidesPerView: 2
       },
       767: {
-        spaceBetween: 10,
-        allowTouchMove: true,
-        slidesPerView: 2
+        spaceBetween: 15,
+        allowTouchMove: false,
+        slidesPerView: 3
       },
       992: {
         spaceBetween: 20,
-        allowTouchMove: true,
+        allowTouchMove: false,
         slidesPerView: 3
       },
       1200: {
@@ -249,25 +246,22 @@ document.addEventListener('DOMContentLoaded', function () {
     slidesPerView: 4,
     spaceBetween: 24,
     allowTouchMove: false,
-    pagination: {
-      el: ".swiper-pagination2",
-    },
-    breakpoints: {
+   breakpoints: {
       // when window width is >= 320px
       320: {
         spaceBetween: 0,
-        allowTouchMove: true,
+        allowTouchMove: false,
         loop: true,
-        slidesPerView: 1
-      },
-      767: {
-        spaceBetween: 10,
-        allowTouchMove: true,
         slidesPerView: 2
       },
+      767: {
+        spaceBetween: 0,
+        allowTouchMove: false,
+        slidesPerView: 3
+      },
       992: {
-        spaceBetween: 20,
-        allowTouchMove: true,
+        spaceBetween: 0,
+        allowTouchMove: false,
         slidesPerView: 3
       },
       1200: {

@@ -33,11 +33,6 @@
       padding: 30px 0 40px
    .speakers h2
       margin-bottom: 30px
-   .speakers .swiper1 .swiper-wrapper,  .par .swiper2 .swiper-wrapper
-      flex-wrap: initial
-      gap: inherit
-   .speakers .swiper1 .swiper-wrapper .swiper-slide:nth-child(4n), .par .swiper2 .swiper-wrapper .swiper-slide:nth-child(4n)
-      margin-right: 20px !important
    .pag
       margin-top: 40px
       display: flex !important
@@ -65,7 +60,24 @@
       margin: 0 auto 40px
    .footer__content
       max-width: 100% 
-
+   .nav__info
+      width: 100%
+      flex-direction: column
+      a 
+         height: 60px
+         font-size: 18px
+         width: 100% !important
+   .swiper1 
+      .swiper-slide 
+         width: 31% !important
+         &:nth-child(3n)
+            margin-right: 0 !important
+   .speakers .swiper1 .swiper-wrapper .swiper-slide:nth-child(4n)
+      margin-right: 20px !important
+   .par .swiper2 .swiper-wrapper
+      gap: 20px
+   .par .swiper2 .swiper-wrapper .swiper-slide
+      width: 48.8% !important
 @media ( max-width: 991px )
    input, textarea, select
       -webkit-appearance: none
@@ -76,7 +88,7 @@
    .main__content h1 
       height: 61px
       padding: 0px 22px 0 28px
-      margin-bottom: 12px
+      margin-bottom: 30px
       font-size: 33px
    .main__content p, .main__text, .prog__content h3
       font-size: 18px
@@ -102,13 +114,16 @@
    .main__area
       margin-bottom: 10px
       height: 120px
-      padding: 20px
+      background: transparent
+      padding: 20px 20px 10px
       img 
          max-width: 100%
          width: 100%
          height: auto
          max-height: 100%
    .main__block p
+      text-align: center
+      margin: 0 auto
       font-size: 14px
       line-height: 16px
    .prog__time
@@ -154,6 +169,17 @@
       margin: 0 auto 5px
    .footer__logo
       margin-bottom: 25px
+   .swiper1 
+      .swiper-slide 
+         width: 48% !important
+   .speakers .swiper1 .swiper-wrapper .swiper-slide
+      margin-right: 0px !important
+   .speakers .swiper1 .swiper-wrapper .swiper-slide:nth-child(4n)
+      margin-right: 0 !important
+   .speakers .swiper1 .swiper-wrapper
+      justify-content: space-between
+   .par .swiper2 .swiper-wrapper .swiper-slide
+      width: 48.5% !important
 @media screen and (max-width: 767px)
    input, textarea, select
       -webkit-appearance: none
@@ -184,7 +210,7 @@
       overflow: hidden
       text-align: left
       .nav__list 
-         gap: 15px
+         gap: 35px
          flex-direction: column
          display: flex
          text-align: center
@@ -224,7 +250,7 @@
       left: 15px
       width: 164px
       position: absolute
-      top: -165px
+      top: -244px
    .main 
       padding-top: 20px
       .container 
@@ -244,6 +270,13 @@
       padding-bottom: 20px
    .footer__box
       margin-bottom: 20px
+   .main 
+      h2 
+         text-align: center
+   .par .swiper2 .swiper-wrapper .swiper-slide
+      width: 48% !important
+   .nav__list li a .svg
+      display: none
 @media screen and (max-width: 576px)
    button:active, button:focus 
       outline: none
@@ -268,20 +301,15 @@
    .mob 
       display: block !important
    .main__logo
-      top: -184px
+      top: -223px
    .menu
       padding-top: 108px
-   .nav__info
-      width: 100%
-      flex-direction: column
-      a 
-         width: 100% !important
    .main__content
       width: 100%
    .main__content h1 
       height: auto
       padding: 10px
-      margin-bottom: 12px
+      margin-bottom: 30px
       font-size: 28px
       width: 100%
       box-sizing: border-box
@@ -292,20 +320,24 @@
    .main__item p
       font-size: 18px
    .main__wrap
-      padding: 30px 20px
+      padding: 30px 20px 50px
    h2 
       font-size: 23px
       line-height: 31px
    .main__block 
-      width: 100%
+      width: 49%
       margin: 0 auto 30px
       &:last-child
          margin-bottom: 0
+   .main__area img
+      max-width: 59%
+   .main__area
+      margin-bottom: 0
    .main__block p
       text-align: center
       margin: 0 auto
    .main:before, .main:after
-      height: 1311px
+      height: 917px
    .main__text
       br 
          display: none
@@ -330,7 +362,11 @@
       height: auto
       margin-bottom: 10px
    .speakers .swiper1 .swiper-wrapper .swiper-slide h3
-      font-size: 21px
+      font-size: 18px
+   .speakers .swiper1 .swiper-wrapper .swiper-slide p
+      font-size: 13px
+      br 
+         display: none
    .speakers 
       .pag 
          margin-top: 20px
@@ -349,6 +385,16 @@
       height: 20px 
       top: 50%
       margin-top: -10px
-
+   .par .swiper2 .swiper-wrapper .swiper-slide
+      width: 47.3% !important
+   .par .swiper2 .swiper-wrapper .swiper-slide:nth-child(12) img 
+      height: 95px !important
+   .par .swiper2 .swiper-wrapper .swiper-slide:nth-child(11) img
+      height: 51px !important
+   .speakers
+      padding-bottom: 20px
+@media screen and (max-width: 400px)
+   .par .swiper2 .swiper-wrapper .swiper-slide
+      width: 46.6% !important
 
 
