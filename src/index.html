@@ -24,6 +24,10 @@
 	<meta property="og:type" content="website">
 	<meta property="og:title" content="">
 	<meta property="og:description" content="">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vjik/arcticModal@master/arcticmodal/jquery.arcticmodal.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 
 	<link rel="stylesheet" type="text/css" href="css/main.css">
@@ -93,11 +97,11 @@
 							</li>
 						</ul>
 						<div class="nav__info q">
-							<a href="#" class="btn">
+							<a href="#" class="btn a1">
 								<img src="img/nav1.svg" alt="" class="svg">
 								Бесплатный билет
 							</a>
-							<a href="#" class="btn">
+							<a href="#" class="btn a2">
 								Забронировать стенд
 								<img src="img/nav2.svg" alt="" class="svg">
 							</a>
@@ -654,10 +658,10 @@
 					</div>
 				</div>
 				<div class="speakers__btns q">
-					<a href="#" class="btn">
+					<a href="#" class="btn a1">
 						Бесплатный билет на высавку <img src="img/arrow.svg" alt="" class="svg">
 					</a>
-					<a href="#" class="btn">
+					<a href="#" class="btn a2">
 						Забронировать стенд <img src="img/arrow.svg" alt="" class="svg">
 					</a>
 				</div>
@@ -853,10 +857,185 @@
 			</div>
 		</footer>
 	</div>
-
+	<div style="display:none;">
+		<div class="box-modal" id="popup-call">
+			<div class="popup-call__box call">
+				<div class="box-modal__close articmodal-close">
+					<img src="img/close.svg" alt="">
+				</div>
+				<p class="popup__title">
+					Регистрация
+				</p>
+				<form action="success.php" class="popup__form js-form" id="popupResult" method="post">
+					<div class="popup__item popup__item_1">
+						<input type="text" placeholder="Имя" class="form__field" required="" name="name">
+						<span>
+							*
+						</span>
+					</div>
+					<div class="popup__item popup__item_2">
+						<input type="text" placeholder="Фамилия" class="form__field" required="" name="name2">
+						<span>
+							*
+						</span>
+					</div>
+					<div class="popup__item popup__item_3">
+						<input type="tel" placeholder="Телефон" class="form__field tel" required="" name="tel">
+						<span>
+								*
+						</span>
+					</div>
+					<div class="popup__item popup__item_4">
+						<input type="email" placeholder="E-mail" class="form__field" required="" name="email">
+						<span>
+							*
+						</span>
+					</div>
+					<div class="popup__item popup__item_5">
+						<input type="text" placeholder="Должность" class="form__field" name="job">
+					</div>
+					<div class="popup__item popup__item_6">
+						<input type="text" placeholder="Компания" class="form__field" name="com">
+					</div>
+					<div class="popup__bottom">
+						<div class="popup__flex input-holder checkbox q">
+							<input class="form-check-input custom-checkbox form-control" type="checkbox" name="check"
+								id="form1" value="Я даю свое согласие на обработку персональных данных" checked>
+							<label class="form-check-label " for="form1">
+								<span>
+									Я согласен(-на) с политикой обработки <br>
+									<a href="#" target="_blank"> персональных данных </a>
+								</span>
+							</label>
+						</div>
+						<div class="popup__flex input-holder checkbox q">
+							<input class="form-check-input custom-checkbox form-control" type="checkbox" name="check"
+								id="form2" value="Даю согласие получать новости и спецпредложения">
+							<label class="form-check-label " for="form2">
+								<span>
+									Даю <a href="#"> согласие</a> получать новости и спецпредложения
+								</span>
+							</label>
+						</div>
+					</div>
+					<button class="btn" data-submit>
+						Продолжить  →
+					</button>
+					<p class="popup__sub">
+						Нажимая на кнопку «Продолжить», вы соглашаетесь <br> с <a href="#" target="_blank"> политикой 
+						обработки данных</a>
+					</p>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div style="display:none;">
+		<div class="box-modal" id="popup-call2">
+			<div class="popup-call__box call">
+				<div class="box-modal__close articmodal-close">
+					<img src="img/close.svg" alt="">
+				</div>
+				<p class="popup__title">
+					Забронировать стенд 
+				</p>
+				<form action="success.php" class="popup__form js-form" id="popupResult" method="post">
+					<div class="popup__item popup__item_1">
+						<input type="text" placeholder="Название компании:" class="form__field" required="" name="company">
+						<span>
+							*
+						</span>
+					</div>
+					<div class="popup__item popup__item_2">
+						<input type="text" placeholder="Сайт:" class="form__field" required="" name="site">
+						<span>
+								*
+						</span>
+					</div>
+					<div class="popup__item popup__item_3">
+						<input type="text" placeholder="Страна:" class="form__field" required="" name="local">
+						<span>
+							*
+						</span>
+					</div>
+					<div class="popup__item popup__item_4">
+						<input type="text" placeholder="Почтовый адрес (с индексом):" class="form__field" required="" name="index">
+						<span>
+							*
+						</span>
+					</div>
+					<div class="popup__item popup__item_5">
+						<input type="text" placeholder="Юридический адрес:" class="form__field" name="address">
+					</div>
+					<div class="popup__item popup__item_6">
+						<input type="tel" placeholder="Телефон:" class="form__field tel" required="" name="tel">
+						<span>
+							*
+						</span>
+					</div>
+					<div class="popup__item popup__item_7">
+						<input type="email" placeholder="E-mail:" class="form__field" required="" name="email">
+						<span>
+							*
+						</span>
+					</div>
+					<div class="popup__item popup__item_8">
+						<input type="text" placeholder="Контактное лицо (Ф.И.О.):" class="form__field" required="" name="name3">
+						<span>
+							*
+						</span>
+					</div>
+					<div class="popup__bottom">
+						<div class="popup__flex input-holder checkbox q">
+							<input class="form-check-input custom-checkbox form-control" type="checkbox" name="check"
+								id="form1" value="Я даю свое согласие на обработку персональных данных" checked>
+							<label class="form-check-label " for="form1">
+								<span>
+									Я согласен(-на) с политикой обработки <br>
+									<a href="#" target="_blank"> персональных данных </a>
+								</span>
+							</label>
+						</div>
+					</div>
+					<button class="btn" data-submit>
+						Отправить  →
+					</button>
+					<p class="popup__sub">
+						Нажимая на кнопку «Отправить», вы соглашаетесь <br> с <a href="#" target="_blank"> политикой 
+						обработки данных</a>
+					</p>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div style="display:none;">
+		<div class="box-modal" id="popup-thank">
+			<div class="popup-call__box">
+				<p class="popup__title">
+					Регистрация
+				</p>
+				<div class="popup__info">
+					<span> Успешно!</span> Вы зарегистрировались!
+				</div>
+			</div>
+		</div>
+	</div>
+	<div style="display:none;">
+		<div class="box-modal" id="popup-thank2">
+			<div class="popup-call__box">
+				<p class="popup__title">
+					Забронировать стенд 
+				</p>
+				<div class="popup__info">
+					<span> Заявка оформлена!</span> Мы скоро свяжемся с вами!
+				</div>
+			</div>
+		</div>
+	</div>
 	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js?ver=5.1"></script>
 	<script src="js/all.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/vjik/arcticModal@master/arcticmodal/jquery.arcticmodal.js"></script>
+
 	<!-- Подключен файл-валидатор, для проверки формы на заполненность  -->
 	<script type="text/javascript"
 		src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.js"></script>

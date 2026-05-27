@@ -1,11 +1,11 @@
 input::-webkit-input-placeholder 
-   color: rgba(250, 250, 255, 0.6) !important
+   color: #7D7D7D !important
 input::-moz-placeholder
-   color: rgba(250, 250, 255, 0.6) !important
+   color: #7D7D7D !important
 input:-ms-input-placeholder 
-   color: rgba(250, 250, 255, 0.6) !important
+   color: #7D7D7D !important
 input:-moz-placeholder 
-   color: rgba(250, 250, 255, 0.6) !important
+   color: #7D7D7D !important
 .menu-btn, .menu
    display: none
 .menu-btn, .menu
@@ -597,6 +597,200 @@ input:-moz-placeholder
    h2 
       text-align: center
       margin-bottom: 64px
+.box-modal__close 
+   z-index: 10
+   cursor: pointer
+   position: absolute
+   top: 20px
+   right: 20px
+   cursor: pointer
+   fill: white
+   z-index: 20
+   transition: 0.5s
+   display: flex
+   align-items: center
+   justify-content: center
+   width: 30px
+   height: 30px
+   &:hover 
+      transition: 0.5s
+      transform: rotate(90deg)
+.box-modal 
+   position: relative
+.popup-call__box 
+   position: absolute
+   top: -22rem
+   left: 50%
+   height: auto
+   margin-left: -337px
+   overflow: hidden
+   height: max-content
+   transition: 0.5s all
+   height: auto
+   width: 664px
+   padding: 50px
+   box-sizing: border-box
+   background: rgb(255, 255, 255)
+label.error 
+   display: none !important
+input.error
+   border-bottom: 1px solid red !important
+.popup 
+   &__title 
+      font-weight: 500
+      font-size: 48px
+      font-family: "Montserrat", sans-serif
+      line-height: 61px
+      color: #000000
+      margin-bottom: 50px
+   &__form 
+      display: flex
+      flex-wrap: wrap
+      justify-content: space-between
+      button 
+         width: 288px
+         height: 65px
+         background: #000000
+         font-style: normal
+         font-weight: 500
+         font-size: 30px
+         line-height: 37px
+         color: #FFFFFF
+         font-family: "Montserrat", sans-serif
+         margin-bottom: 40px
+         border: none
+         &:hover 
+            color: white 
+            background: $or
+   &__item 
+      width: 45%
+      margin-bottom: 40px
+      position: relative
+      span 
+         position: absolute
+         left: 16%
+         top: 0
+         color: #FD0700
+      input 
+         width: 100%
+         border: none 
+         border-bottom: 1px solid #D2D2D2
+         padding-bottom: 15px
+         color: #000
+         font-weight: 500
+         font-family: "Montserrat", sans-serif
+         font-size: 17px
+         line-height: 21px
+         &:focus 
+            border-bottom: 1px solid $or !important
+      &_2 
+         span 
+            left: 34%
+      &_3
+         span 
+            left: 32%
+      &_4
+         span 
+            left: 23%
+   &__flex 
+      width: 100%
+      .custom-checkbox + label
+         align-items: flex-start
+         span 
+            font-family: "Montserrat", sans-serif
+            font-weight: 500
+            font-size: 16px
+            line-height: 21px
+            color: #7D7D7D
+            a 
+               color: #7D7D7D
+               border-bottom: 1px solid #7D7D7D
+               &:hover 
+                  border-bottom: 1px solid  $or
+                  color: $or
+      .custom-checkbox + label::before
+         box-sizing: border-box
+         border-radius: 50%
+         width: 16px
+         height: 16px
+         border: 2px solid #000000
+         max-width: 16px
+         margin-top: 4px
+      .custom-checkbox:checked + label::before
+         background: url(/img/check.png) no-repeat center center
+      &:first-child
+         margin-bottom: 20px
+      &:last-child
+         margin-bottom: 0 !important
+   &__bottom 
+      margin-bottom: 40px
+   &__sub 
+      font-style: normal
+      font-weight: 500
+      font-size: 15px
+      font-family: "Montserrat", sans-serif
+      line-height: 18px
+      color: #7D7D7D
+      a 
+         color: #7D7D7D
+         border-bottom: 1px solid #7D7D7D
+         &:hover 
+            border-bottom: 1px solid  $or
+            color: $or
+   &__info 
+      display: flex
+      align-items: center
+      justify-content: center
+      font-family: "Montserrat", sans-serif
+      height: 58px
+      background: #DEF0D8
+      padding: 0 20px
+      width: max-content
+      font-weight: 400
+      font-size: 17px
+      line-height: 21px
+      color: #5F9658
+      span 
+         font-weight: 700
+         margin-right: 5px
+#popup-call2
+   .popup__item
+      width: 100%
+      &_1
+         span 
+            left: 34%
+      &_2
+         span 
+            left: 9%
+      &_3
+         span 
+            left: 13%
+      &_4
+         span 
+            left: 49%
+      &_6
+         span 
+            left: 16%
+      &_7
+         span 
+            left: 12%
+      &_8
+         span 
+            left: 42%
+input:not(:placeholder-shown) + span
+   opacity: 0
+   visibility: hidden
+input:not(:placeholder-shown) + label + span
+   opacity: 0
+   visibility: hidden
+
+
+
+
+
+
+   
+
 
 
 

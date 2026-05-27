@@ -90,47 +90,54 @@ window.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", () => {
   var accordeonButtons = document.getElementsByClassName("accordeon__button");
 
-  //пишем событие при клике на кнопки - вызов функции toggle
+  // Аккордеон
   for (var i = 0; i < accordeonButtons.length; i++) {
     var accordeonButton = accordeonButtons[i];
-
     accordeonButton.addEventListener("click", toggleItems, false);
   }
 
-  //пишем функцию
   function toggleItems() {
-
-    // переменная кнопки(актульная) с классом
     var itemClass = this.className;
 
-    // добавляем всем кнопкам класс close
     for (var i = 0; i < accordeonButtons.length; i++) {
       accordeonButtons[i].className = "accordeon__button closed";
     }
 
-    // закрываем все открытые панели с текстом
     var pannels = document.getElementsByClassName("accordeon__panel");
+
     for (var z = 0; z < pannels.length; z++) {
       pannels[z].style.maxHeight = 0;
     }
 
-    // проверка. если кнопка имеет класс close при нажатии
-    // к актуальной(нажатой) кнопке добававляем активный класс
-    // а панели - которая находится рядом задаем высоту
     if (itemClass == "accordeon__button closed") {
       this.className = "accordeon__button active";
       var panel = this.nextElementSibling;
       panel.style.maxHeight = panel.scrollHeight + "px";
     }
-
   }
 });
+
 document.addEventListener("DOMContentLoaded", () => {
+
+  // Красный цвет для *
+  $('input[placeholder]').each(function () {
+    const placeholder = $(this).attr('placeholder');
+
+    if (placeholder.includes('*')) {
+      $(this).attr(
+        'data-placeholder',
+        placeholder.replace(/\*/g, '<span style="color:red">*</span>')
+      );
+    }
+  });
+
   $(document).ready(function () {
+
     $('[data-submit]').on('click', function (e) {
       e.preventDefault();
       $(this).parents('form').submit();
-    })
+    });
+
     $.validator.addMethod(
       "regex",
       function (value, element, regexp) {
@@ -139,13 +146,14 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       "Please check your input."
     );
+
     function valEl(el) {
 
       el.validate({
         rules: {
           tel: {
             required: true,
-            regex: '^([\+]+)*[0-9\x20\x28\x29\-]{5,20}$'
+            regex: '^([\\+]+)*[0-9\\x20\\x28\\x29\\-]{5,20}$'
           },
           name: {
             required: true
@@ -155,63 +163,247 @@ document.addEventListener("DOMContentLoaded", () => {
             email: true
           }
         },
+
         messages: {
           tel: {
             required: 'Заполните поле',
             regex: 'Телефон может содержать символы + - ()'
           },
+
           name: {
             required: 'Заполните поле',
           },
+
           text: {
             required: 'Заполните поле',
           },
+
           email: {
             required: 'Заполните поле',
             email: 'Неверный формат E-mail'
           }
         },
+
         submitHandler: function (form) {
+
           $('#loader').fadeIn();
+
           var $form = $(form);
           var $formId = $(form).attr('id');
-          switch ($formId) {
-            case 'popupResult':
-              $.ajax({
-                type: 'POST',
-                url: $form.attr('action'),
-                data: $form.serialize(),
-              })
-                .always(function (response) {
-                  setTimeout(function () {
-                    $('#loader').fadeOut();
-                  }, 800);
-                  setTimeout(function () {
-                    $.arcticmodal('close');
-                    $('#popup-thank').arcticmodal({});
-                    $form.trigger('reset');
-                    //строки для остлеживания целей в Я.Метрике и Google Analytics
-                  }, 1100);
+          var modalId = $form.closest('.box-modal').attr('id');
 
-                });
-              break;
-          }
+          $.ajax({
+            type: 'POST',
+            url: $form.attr('action'),
+            data: $form.serialize(),
+          })
+
+          .always(function () {
+
+            setTimeout(function () {
+              $('#loader').fadeOut();
+            }, 800);
+
+            setTimeout(function () {
+
+              $.arcticmodal('close');
+
+              // Первая форма
+              if (modalId === 'popup-call') {
+                $('#popup-thank').arcticmodal({});
+              }
+
+              // Вторая форма
+              if (modalId === 'popup-call2') {
+                $('#popup-thank2').arcticmodal({});
+              }
+
+              $form.trigger('reset');
+
+            }, 1100);
+
+          });
+
           return false;
         }
-      })
+      });
     }
 
     $('.js-form').each(function () {
       valEl($(this));
     });
-    $('[data-scroll]').on('click', function () {
+
+    $('[data-scroll]').on('click', function (event) {
       $('html, body').animate({
         scrollTop: $($.attr(this, 'data-scroll')).offset().top
       }, 2000);
+
       event.preventDefault();
-    })
+    });
+
   });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  $('.articmodal-close').click(function (e) {
+    $.arcticmodal('close');
+  });
+
+  $('.a1').click(function (e) {
+    e.preventDefault();
+
+    $('#popup-call').arcticmodal({});
+  });
+
+  $('.a2').click(function (e) {
+    e.preventDefault();
+
+    $('#popup-call2').arcticmodal({});
+  });
+
+});
+// document.addEventListener("DOMContentLoaded", () => {
+//   var accordeonButtons = document.getElementsByClassName("accordeon__button");
+
+//   //пишем событие при клике на кнопки - вызов функции toggle
+//   for (var i = 0; i < accordeonButtons.length; i++) {
+//     var accordeonButton = accordeonButtons[i];
+
+//     accordeonButton.addEventListener("click", toggleItems, false);
+//   }
+
+//   //пишем функцию
+//   function toggleItems() {
+
+//     // переменная кнопки(актульная) с классом
+//     var itemClass = this.className;
+
+//     // добавляем всем кнопкам класс close
+//     for (var i = 0; i < accordeonButtons.length; i++) {
+//       accordeonButtons[i].className = "accordeon__button closed";
+//     }
+
+//     // закрываем все открытые панели с текстом
+//     var pannels = document.getElementsByClassName("accordeon__panel");
+//     for (var z = 0; z < pannels.length; z++) {
+//       pannels[z].style.maxHeight = 0;
+//     }
+
+//     // проверка. если кнопка имеет класс close при нажатии
+//     // к актуальной(нажатой) кнопке добававляем активный класс
+//     // а панели - которая находится рядом задаем высоту
+//     if (itemClass == "accordeon__button closed") {
+//       this.className = "accordeon__button active";
+//       var panel = this.nextElementSibling;
+//       panel.style.maxHeight = panel.scrollHeight + "px";
+//     }
+
+//   }
+// });
+// document.addEventListener("DOMContentLoaded", () => {
+//   $(document).ready(function () {
+//     $('[data-submit]').on('click', function (e) {
+//       e.preventDefault();
+//       $(this).parents('form').submit();
+//     })
+//     $.validator.addMethod(
+//       "regex",
+//       function (value, element, regexp) {
+//         var re = new RegExp(regexp);
+//         return this.optional(element) || re.test(value);
+//       },
+//       "Please check your input."
+//     );
+//     function valEl(el) {
+
+//       el.validate({
+//         rules: {
+//           tel: {
+//             required: true,
+//             regex: '^([\+]+)*[0-9\x20\x28\x29\-]{5,20}$'
+//           },
+//           name: {
+//             required: true
+//           },
+//           email: {
+//             required: true,
+//             email: true
+//           }
+//         },
+//         messages: {
+//           tel: {
+//             required: 'Заполните поле',
+//             regex: 'Телефон может содержать символы + - ()'
+//           },
+//           name: {
+//             required: 'Заполните поле',
+//           },
+//           text: {
+//             required: 'Заполните поле',
+//           },
+//           email: {
+//             required: 'Заполните поле',
+//             email: 'Неверный формат E-mail'
+//           }
+//         },
+//         submitHandler: function (form) {
+//           $('#loader').fadeIn();
+//           var $form = $(form);
+//           var $formId = $(form).attr('id');
+//           switch ($formId) {
+//             case 'popupResult':
+//               $.ajax({
+//                 type: 'POST',
+//                 url: $form.attr('action'),
+//                 data: $form.serialize(),
+//               })
+//                 .always(function (response) {
+//                   setTimeout(function () {
+//                     $('#loader').fadeOut();
+//                   }, 800);
+//                   setTimeout(function () {
+//                     $.arcticmodal('close');
+//                     $('#popup-thank').arcticmodal({});
+//                     $form.trigger('reset');
+//                     //строки для остлеживания целей в Я.Метрике и Google Analytics
+//                   }, 1100);
+
+//                 });
+//               break;
+//           }
+//           return false;
+//         }
+//       })
+//     }
+
+//     $('.js-form').each(function () {
+//       valEl($(this));
+//     });
+//     $('[data-scroll]').on('click', function () {
+//       $('html, body').animate({
+//         scrollTop: $($.attr(this, 'data-scroll')).offset().top
+//       }, 2000);
+//       event.preventDefault();
+//     })
+//   });
+// });
+// document.addEventListener('DOMContentLoaded', function () {
+//   $('.articmodal-close').click(function (e) {
+//     $.arcticmodal('close');
+
+//   });
+//   $('.a1').click(function (e) {
+//     e.preventDefault();
+//     $('#popup-call').arcticmodal({
+//     });
+//   });
+//   $('.a2').click(function (e) {
+//     e.preventDefault();
+//     $('#popup-call2').arcticmodal({
+//     });
+//   });
+// });
 document.addEventListener('DOMContentLoaded', function () {
   const swiper1 = new Swiper('.swiper1', {
     slidesPerView: 4,
