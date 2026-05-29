@@ -1392,6 +1392,28 @@ input:not(:placeholder-shown) + label + span {
   visibility: hidden;
 }
 
+.text {
+  padding: 60px 0;
+}
+.text h1 {
+  margin-bottom: 50px;
+}
+.text p {
+  margin-bottom: 20px;
+}
+.text .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: auto;
+  margin-bottom: 80px;
+}
+.text .logo .svg {
+  width: 100%;
+  height: 100%;
+}
+
 @media screen and (max-width: 1199px) {
   .nav__box {
     flex-direction: column;
@@ -2010,6 +2032,9 @@ input:not(:placeholder-shown) + label + span {
   }
   .speakers {
     padding-bottom: 20px;
+  }
+  .text .logo {
+    width: 250px;
   }
 }
 @media screen and (max-width: 400px) {
